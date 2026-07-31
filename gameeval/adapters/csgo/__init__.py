@@ -1,0 +1,1 @@
+"""CSGO adapter sub-package."""

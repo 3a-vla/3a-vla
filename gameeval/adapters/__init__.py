@@ -1,0 +1,1 @@
+"""Game adapter sub-package."""

@@ -1,0 +1,49 @@
+# =============================================================================
+# CSGO adapter settings (Listen-Server mode only)
+# =============================================================================
+# GameEval has no RCON or dedicated-server dependency. You prepare a scene;
+# GameEval reads evaluator-only state through GSI, captures the client, and can
+# execute the agent's keyboard/mouse actions.
+#
+# Make sure the bundled `gamestate_integration_gameeval.cfg`
+# points its `uri` at the same port that `gsi.port` below uses.
+# =============================================================================
+
+gsi:
+  host: "0.0.0.0"   # bind all interfaces; CSGO loops back through 127.0.0.1
+  port: 3000
+  auth_token: "gameeval_local"
+
+# ------------------------------------------------------------------------------
+# CSGO client install path containing the game's cfg directory. If omitted,
+# integrations may resolve it from common Steam library locations.
+# ------------------------------------------------------------------------------
+client_path: null
+
+screenshot:
+  # On Windows, GameEval locates the process window and uses PrintWindow.
+  # Other hosts and missing-window cases fall back to mss monitor capture.
+  process: "csgo.exe"
+  crop_size: null
+  target_size: null
+  debug: false
+
+  # Used when process-window capture is unavailable:
+  #   null = capture the primary monitor
+  #   {left, top, width, height} = capture a rectangle
+  region: null
+
+# ------------------------------------------------------------------------------
+# Input injection (Listen-Server mode). When `enable: true`, GameEval turns the
+# agent's Action into real OS-level keyboard / mouse events via Win32 SendInput,
+# so CSGO actually moves and shoots. Leave `enable: false` for manual smoke
+# runs or capture-only evaluation.
+#
+# mouse_scale multiplies `Action.mouse_dx / mouse_dy` before it is sent as a
+# relative mouse delta:
+#   - agent emits raw pixels        -> mouse_scale: 1.0
+# ------------------------------------------------------------------------------
+input:
+  enable: false
+  mouse_scale: 1.0
+  hold_left_mouse: false

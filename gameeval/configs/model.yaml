@@ -1,0 +1,38 @@
+# GameEval VLM-judge configuration. Agent models belong to external
+# gameeval.agents plugins and are configured with --agent-override.
+# Keep credentials in environment variables or an untracked private config.
+#
+# Defaults target an OpenAI endpoint. For an internal OpenAI-compatible
+# deployment set GAMEEVAL_VLM_BASE_URL, GAMEEVAL_VLM_MODEL, GAMEEVAL_VLM_API_KEY
+# and, when the deployment requires it, GAMEEVAL_VLM_WSID.
+
+judge:
+  model: "${GAMEEVAL_VLM_MODEL}"
+  base_url: "${GAMEEVAL_VLM_BASE_URL}"
+  api_key: "${GAMEEVAL_VLM_API_KEY}"
+  max_tokens: 1024
+  timeout: 180
+  # Rollout frames need enough detail for the judge to see motion.
+  image_detail: high
+  # Some deployments only serve streamed completions; deltas are joined before
+  # the verdict is parsed.
+  stream: true
+  # Guard against deployments that occasionally end a stream with no content.
+  # Without this an infrastructure hiccup would be recorded as a judge error and
+  # drop the episode from coverage.
+  empty_response_retries: 3
+  retry_backoff_seconds: 2.0
+  # Fields that must carry a unique identifier on every request.
+  request_id_fields: ["query_id", "X-Request-Id"]
+  # Deployment-specific routing headers, forwarded verbatim. Empty values are
+  # dropped so an unset variable does not send a blank header.
+  extra_headers:
+    Wsid: "${GAMEEVAL_VLM_WSID}"
+  # Deployment-specific body fields.
+  extra_body:
+    openai_infer: true
+    top_k: 50
+    repetition_penalty: 1.05
+    # A judge must return the strict JSON verdict, not a reasoning transcript.
+    chat_template_kwargs:
+      enable_thinking: false

@@ -1,0 +1,16 @@
+# =============================================================================
+# GameEval General Settings
+# =============================================================================
+# Game-specific settings are in gameeval/configs/<game>/server.yaml
+# Model settings are in gameeval/configs/model.yaml
+# =============================================================================
+
+general:
+  screenshot_width: 640
+  screenshot_height: 360
+
+artifacts:
+  # Do not persist privileged CSGO/GP state in public evaluation artifacts.
+  # Internal runs may explicitly choose "summary" or "full".
+  state_retention: none
+  video_fps: 8.0

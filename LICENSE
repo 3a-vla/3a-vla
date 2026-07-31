@@ -1,0 +1,137 @@
+3A-VLA RESEARCH USE LICENSE
+Version 1.0, 1 August 2026
+
+Copyright (c) 2026 3A-VLA Contributors
+All rights reserved except as expressly granted below.
+
+This is a source-available research license. It is not an OSI-approved open
+source license. By downloading, accessing, using, modifying, or distributing
+the Materials, You agree to this License.
+
+1. Definitions
+
+"Licensor" means the 3A-VLA contributors who hold copyright in the Materials.
+
+"Materials" means the 3A-VLA and GameEval source code, configurations,
+documentation, evaluation artifacts, and any model weights or checkpoints that
+the Licensor expressly releases under this License.
+
+"Derivative Materials" means modifications, adaptations, fine-tunes, merges,
+distillations, conversions, or other works derived from the Materials.
+
+"Permitted Research Use" means non-commercial academic research,
+reproducibility, education, security research, defensive evaluation, or
+platform trust-and-safety work conducted in a controlled environment and in
+compliance with applicable law, platform terms, and this License. Access-gated
+artifacts and use by commercial entities require the Licensor's prior written
+approval, except where the Licensor has expressly approved defensive work with
+a platform provider.
+
+2. License Grant
+
+Subject to this License, the Licensor grants You a non-exclusive, worldwide,
+royalty-free license to use, reproduce, modify, and redistribute the Materials
+and Derivative Materials solely for Permitted Research Use.
+
+No patent, trademark, game asset, platform, dataset, privacy, publicity, or
+other third-party right is granted. You must independently obtain lawful access
+to any commercial game and comply with its applicable terms.
+
+3. Prohibited Uses
+
+You must not use, enable, assist, or distribute the Materials or Derivative
+Materials for:
+
+a. deployment in public matchmaking, ranked or competitive play, production
+   game services, or experiments involving uninformed or non-consenting users;
+
+b. automated aiming, target snapping, tactical exploitation, unfair play,
+   cheating, anti-cheat evasion, or bypassing platform security controls;
+
+c. resource farming, economic manipulation, bulk-account creation or control,
+   bot-as-a-service, commercial automation workflows, or commercial data-mining
+   systems;
+
+d. social impersonation or the training, deployment, or distribution of
+   automated text-chat, voice, or emote modules;
+
+e. real-world weaponization, harmful targeting, physical-system control,
+   unlawful tracking, unlawful surveillance, or other use intended to injure,
+   threaten, or materially disadvantage a person or group;
+
+f. collection, reconstruction, deanonymization, disclosure, or exploitation of
+   personal data, account identifiers, private communications, proprietary game
+   assets, or other data obtained without valid rights and consent;
+
+g. any unlawful activity or violation of applicable game, platform, service,
+   privacy, intellectual-property, or access-control terms; or
+
+h. circumvention of these restrictions through modification, fine-tuning,
+   distillation, quantization, merging, repackaging, API access, hosted service,
+   sublicensing, or redistribution.
+
+4. Redistribution and Derivatives
+
+You may redistribute the Materials or Derivative Materials only when You:
+
+a. provide a complete copy of this License and retain all attribution,
+   copyright, security, and responsible-use notices;
+
+b. clearly identify Your modifications and state that the Licensor has not
+   endorsed them;
+
+c. impose these same use restrictions on every downstream recipient and do not
+   grant broader rights than this License; and
+
+d. do not provide access to any raw frames, replay files, raw action logs,
+   account identifiers, chat or voice data, commercial game assets, or other
+   material for which You lack documented redistribution rights.
+
+5. Release Boundaries
+
+The public release is intended to contain processed, identifier-removed
+research artifacts and reproducibility tools only. It does not grant permission
+to recover or distribute source replays, unprocessed frames, private logs,
+commercial assets, or platform data.
+
+No fine-tuned checkpoint is included in the current public release. Any future
+checkpoint release will occur no earlier than 90 days after publication and
+only after privacy, intellectual-property, and security review. A future
+checkpoint may also require separate access approval and additional terms.
+
+6. Security and Responsible Disclosure
+
+You must follow SECURITY.md when reporting vulnerabilities, privacy failures,
+unsafe automation paths, or platform-security risks. Do not publish exploit
+details or sensitive reproduction material before coordinated disclosure.
+
+7. Termination
+
+Your rights under this License terminate automatically if You violate any term.
+Upon termination, You must stop using and distributing the Materials and
+Derivative Materials and delete copies under Your control, except copies that
+applicable law requires You to retain. Sections 3, 6, 8, and 9 survive
+termination.
+
+8. Disclaimer of Warranty
+
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE, TITLE, NON-INFRINGEMENT, SECURITY, OR ACCURACY. YOU ARE SOLELY
+RESPONSIBLE FOR COMPLYING WITH APPLICABLE LAW, PLATFORM TERMS, AND THIRD-PARTY
+RIGHTS.
+
+9. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE LICENSOR WILL NOT BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR OTHER
+DAMAGES ARISING FROM THE MATERIALS OR THEIR USE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.
+
+10. Severability and Entire License
+
+If any provision is unenforceable, the remaining provisions remain effective.
+This License is the entire license grant for the Materials unless the Licensor
+provides additional written terms for a separately released artifact.
+
+Questions and permission requests: 3avla123@gmail.com

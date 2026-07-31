@@ -1,0 +1,15 @@
+task_id: csgo_kill
+game: csgo
+protocol: csgo-state
+description: Eliminate one opponent in the operator-prepared scene.
+max_steps: 300
+time_limit: 60
+evaluator:
+  type: state
+  conditions:
+    type: field_delta_gte
+    path: player_kills
+    value: 1
+metadata:
+  canonical: false
+  purpose: minimal CSGO kill-task example

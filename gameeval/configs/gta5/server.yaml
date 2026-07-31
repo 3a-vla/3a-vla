@@ -1,0 +1,15 @@
+# GTA5 is evaluated from captured pixels; no game-state API is assumed.
+screenshot:
+  monitor_index: 1
+  # Set a window/stream rectangle to avoid capturing unrelated desktop content.
+  region: null
+
+input:
+  # Keep false until capture/focus and OS accessibility permissions are verified.
+  enable: false
+  mouse_scale: 1.0
+  frame_duration_ms: 50
+  use_key: f
+
+step_delay: 0.05
+reset_delay: 0.0

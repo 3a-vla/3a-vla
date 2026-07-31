@@ -1,0 +1,29 @@
+# GP-State is the internal, evaluator-only serialized-state path.
+state:
+  bridge:
+    base_url: "${GAMEEVAL_GP_BRIDGE_URL}"
+    token: "${GAMEEVAL_GP_TOKEN}"
+    timeout: 30
+
+# GP-Visual is the public Windows path. It never exposes serialized state.
+visual:
+  screenshot:
+    monitor_index: 1
+    region: null
+    # Capture one window's client area instead of the whole monitor. The
+    # substring must identify exactly one visible window, and its client size
+    # must match the task's declared setup.resolution.
+    window_title: "和平精英模拟器"
+    # Raise and focus the window before each episode.
+    focus_window: true
+    # Screen capture reads the desktop composite, so a covered window would
+    # record the wrong pixels. Refuse to run in that case.
+    require_unobstructed: true
+  input:
+    # Live model control of the focused game window. Keep this false for
+    # capture/recording dry runs.
+    enable: true
+    mouse_scale: 1.0
+    use_key: f
+  step_delay: 0.05
+  reset_delay: 5.0

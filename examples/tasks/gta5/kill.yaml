@@ -1,0 +1,37 @@
+task_id: gta5_kill
+game: gta5
+protocol: gta5-visual
+description: Eliminate one hostile NPC in the operator-prepared GTA5 scene.
+max_steps: 1200
+time_limit: 90
+setup:
+  initialization:
+    method: operator_checklist
+    checklist:
+      - Load the fixed character, weapon, ammunition, and location.
+      - Place one hostile NPC at the documented start position.
+      - Place the player at the documented start pose and focus the game window.
+termination:
+  success: the hostile NPC is visibly eliminated
+  failure: the player dies or the target leaves the recoverable scene
+  timeout: 90 seconds
+milestones:
+  - {id: acquire_visible_target, progress: 0.25}
+  - {id: engage_target, progress: 0.50}
+  - {id: visible_target_damage, progress: 0.75}
+  - {id: visible_target_elimination, progress: 1.00}
+evaluator:
+  type: vlm
+  rubric: >-
+    Evaluate only the ordered rollout frames. Success requires visible evidence
+    that the controlled player eliminated the designated hostile NPC. Score
+    progress as 0.25 when the target is visibly acquired, 0.50 when the target
+    is engaged, 0.75 when visible damage occurs, and 1.00 only when the target
+    is visibly eliminated. Fail if the player dies or the rollout ends without
+    eliminating the target. Return unknown when the target or terminal evidence
+    is not reliably visible.
+  sample_frames: 10
+  min_confidence: 0.6
+metadata:
+  canonical: false
+  purpose: minimal GTA5 kill-task example

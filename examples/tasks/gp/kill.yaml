@@ -1,0 +1,52 @@
+task_id: gp_kill
+game: gp
+protocol: gp-visual
+description: Eliminate one opponent in the operator-prepared Game for Peace scene.
+max_steps: 2400
+time_limit: 120
+setup:
+  game_version: record_exact_build_here
+  resolution: [1280, 720]
+  display_mode: windowed
+  keyboard_layout: US
+  reset_delay: 5
+  initialization:
+    method: operator_checklist
+    checklist:
+      - Select the fixed account, character, and loadout.
+      - Enter the fixed map and prepared combat scene.
+      - Place one opponent at the documented start position.
+      - Place the avatar at the documented start pose and focus the game window.
+  keymap:
+    move: [w, a, s, d]
+    fire: mouse_left
+    aim: mouse_right
+    reload: r
+termination:
+  success: a visible kill-feed or elimination indicator confirms one opponent elimination
+  failure: the controlled avatar dies or the combat scene becomes unrecoverable
+  timeout: 120 seconds
+milestones:
+  - {id: acquire_visible_opponent, progress: 0.25}
+  - {id: engage_opponent, progress: 0.50}
+  - {id: visible_damage_or_knock, progress: 0.75}
+  - {id: visible_elimination_confirmation, progress: 1.00}
+evaluator:
+  type: vlm
+  rubric: >-
+    Evaluate only the ordered rollout frames. Success requires visible evidence
+    that the controlled avatar eliminated one opponent, confirmed by a kill-feed
+    message or an equivalent elimination indicator. Score progress as 0.25 when
+    an opponent is visibly acquired, 0.50 when the opponent is engaged, 0.75
+    when visible damage or a knock occurs, and 1.00 only after visible elimination
+    confirmation. Return unknown when occlusion, dropped frames, or missing
+    terminal evidence makes the decision unreliable.
+  sample_frames: 12
+  min_confidence: 0.6
+reporting:
+  success_rate: successes / all_predeclared_episodes
+  unknown: counted_as_non_success_and_reported_separately
+  progress: VLM score in [0, 1] under the task rubric
+metadata:
+  canonical: false
+  purpose: minimal GP kill-task example
